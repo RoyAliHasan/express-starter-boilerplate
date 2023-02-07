@@ -10,4 +10,3 @@ const connectWithDB = () => {
   }
 };
 
-module.exports = connectWithDB;

@@ -1,4 +1,5 @@
 const http_status = require("http-status");
+const logger = require("../logs/log");
 const testController = (req, res) => {
   try {
     const testObj = {
@@ -7,12 +8,12 @@ const testController = (req, res) => {
       status: true,
     };
     res.status(http_status.OK).send(testObj);
-    console.log("GET: TEST Api");
+    logger.info("{GET: Home}");
   } catch (error) {
     res
-      .status(http_status.BAD_REQUEST)
+      .status(http_status.FORBIDDEN)
       .json({ id: 000000, message: "fail", status: false });
-    console.log("ERROR: TEST Api");
+    logger.error("ERROR: Home");
   }
 };
 module.exports = { testController };
